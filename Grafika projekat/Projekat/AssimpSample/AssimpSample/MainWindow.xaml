@@ -1,0 +1,29 @@
+﻿<Window x:Class="AssimpSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SharpGL WPF Application" Height="450" Width="625" Name="prozor"
+        xmlns:sharpGL="clr-namespace:SharpGL.WPF;assembly=SharpGL.WPF" KeyDown="Window_KeyDown">
+    <Grid>
+        <DockPanel>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="2">
+                <Label>Translate board:</Label>
+                <TextBox Width="25" Name="translateBoard" Text="0.0"></TextBox>
+                <Button Margin="5 0 5 0" Padding="5 0 5 0" Name="tbBtn" Click="TbBtn_Click">TranslateBoard</Button>
+                <Label >Scale board:</Label>
+                <TextBox Width="25" Name="scaleBoard" Text="0.0"></TextBox>
+                <Button Name="sbBtn" Margin="5 0 5 0" Click="SbBtn_Click">ScaleBoard</Button>
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="30 0 5 0" Name="red" VerticalAlignment="Top" Width="30" Background="Red" Text="0.0" Foreground="White"/>
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="5 0 5 0" Name="green" VerticalAlignment="Top" Width="30" Background="Green" Text="0.0" Foreground="White" />
+                <TextBox Height="23" HorizontalAlignment="Left" Margin="5 0 5 0" Name="blue" VerticalAlignment="Top" Width="30" Background="Blue" Text="0.0" Foreground="White"/>
+                <Button Margin="5 0 5 0" Name="clBtn" Click="ClBtn_Click">Color</Button>
+            </StackPanel>
+
+            <!-- The OpenGL control provides a OpenGL drawing surface. -->
+            <sharpGL:OpenGLControl 
+            Name="openGLControl" OpenGLDraw="openGLControl_OpenGLDraw" 
+            OpenGLInitialized="openGLControl_OpenGLInitialized" Resized="openGLControl_Resized"
+            DrawFPS="True" RenderContextType="FBO" FrameRate="10"/>
+        </DockPanel>
+        
+    </Grid>
+</Window>
